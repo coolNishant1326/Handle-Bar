@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        font-family: Calibri;  
+        text-align: center;
+        margin : 0;
+        margin-top: 30px;
+        text-align: center;
+      }
+      div{
+        background-color : black;
+        display : flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.1rem;
+        margin-bottom: 100px;
+        height : 50px;
+        color : #fff;
+      }
+      input[type="text"] {  
+          width: 250px;  
+      }  
+      input[type="submit"], input[type="reset"] {  
+          width: 77px;  
+          height: 27px;  
+          position: relative;left: 180px;  
+      }  
+      form{  
+          text-align: center;  
+          font-family: Calibri;  
+          font-size: 20px;  
+          border: 3px solid black;  
+          width: 600px;  
+          margin: 20px auto;  
+      }  
+      td {  
+          padding: 10px;  
+      }  
+      td:first-child {  
+          text-align: right;  
+          font-weight: bold;  
+      }  
+      td:last-child {  
+          text-align: left;  
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>Contact Me</h1></center>  
+    <hr>    
+    <form method="" action="" name="reg_form" onsubmit="validate()">    
+        <h2>Registration Form</h2>    
+        <table>    
+            <tr>    
+                <td><label>First Name: </label></td>    
+                <td>    
+                    <input type="text" name="fname" placeholder="First Name">    
+                </td>
+            </tr>
+            <tr>
+                <td><label>Last Name: </label></td>
+                <td>
+                    <input type="text" name="lname" placeholder="Last Name">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Email Id: </label></td>
+                <td>
+                    <input type="text" name="email" placeholder="example@gmail.com">
+                </td>
+            </tr>
+            <tr>    
+                <td><label>Mobile: </label></td>    
+                <td>    
+                    <input type="number" name="mobile">    
+                </td>    
+            </tr> 
+            <tr>
+                <td>
+                    <input type="submit" name="submit" value="Submit">
+                    <input type="reset" name="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <button onclick="location.href='./home.html'">Home Page</button>
+    <button onclick="location.href='./index.html'">Sign In</button>
+    <script>  
+        function validate() {
+          var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          var fname = document.reg_form.fname;
+          var lname = document.reg_form.lname;
+          var email = document.reg_form.email;
+          var mobile = document.reg_form.mobile;
+          if (fname.value.length <= 0 || lname.value.length <= 0) {  
+              alert("Name is required");  
+              fname.focus();  
+              return false;  
+          }  
+          if (email.value.length <= 0) {  
+              alert("Email is required");  
+              email.focus();  
+              return false;  
+          }
+
+          if(re.test(email.value) == false){
+              alert("Invalid Email");
+              email.focus();
+              return false;
+          }
+
+          if (mobile.value.length <= 0) {  
+              alert("Mobile No. is required");  
+              mobile.focus();  
+              return false;  
+          }
+        }
+    </script>
+  </body>
+</html>
